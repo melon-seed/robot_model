@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find ?????????)/urdf/common_colours.xacro"/>
+
+  <xacro:macro name="material_red">
+    <material name="">
+      <color rgba="${color_red}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_green">
+    <material name="">
+      <color rgba="${color_green}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_blue">
+    <material name="">
+      <color rgba="${color_blue}"/>
+    </material>
+  </xacro:macro>
+
+</robot>

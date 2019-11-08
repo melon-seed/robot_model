@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:property name="color_red"   value="1 0 0 1" />
+    <xacro:property name="color_green"   value="0 1 0 1" />
+    <xacro:property name="color_blue"   value="0 0 1 1" />
+</robot>

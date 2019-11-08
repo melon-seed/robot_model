@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:macro name="CMA_gr680" params="prefix">
+
+    <!-- COLOR -->
+    <material name="green">
+          <color rgba="0.0 1.0 0.0 1" />
+    </material>
+
+    <!-- link list -->
+    <link name="${prefix}base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/base_link.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/base_link.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_1">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_1.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_1.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_2">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_2.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_2.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_3">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_3.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_3.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_4">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_4.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_4.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_5">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_5.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_5.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}link_6">
+        <visual>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/visual/link_6.stl"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <!-- <collision>
+            <geometry>
+                <mesh filename="package://gr680_description/meshes/collision/link_6.stl"/>
+            </geometry>
+        </collision> -->
+    </link>
+    <link name="${prefix}EndFlange"/>
+    
+    <!-- end of link list -->
+
+    <!-- joint list -->
+    <joint name="${prefix}joint1" type="revolute">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}link_1"/>
+        <origin xyz="0 0 0.5986" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${-175*pi/180}" upper="${175*pi/180}" effort="926.10" velocity="${150*pi/180}"/>
+    </joint>
+    <joint name="${prefix}joint2" type="revolute">
+        <parent link="${prefix}link_1"/>
+        <child link="${prefix}link_2"/>
+        <origin xyz="0.21 0 0.0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${-150*pi/180}" upper="${80*pi/180}" effort="1029.00" velocity="${145*pi/180}"/>
+    </joint>
+    <joint name="${prefix}joint3" type="revolute">
+        <parent link="${prefix}link_2"/>
+        <child link="${prefix}link_3"/>
+        <origin xyz="0 0 1.0" rpy="0 0 0" />
+        <axis xyz="0 -1 0" />
+        <limit lower="${-80*pi/180}" upper="${125*pi/180}" effort="551.25" velocity="${150*pi/180}"/>
+    </joint>
+    <joint name="${prefix}joint4" type="revolute">
+        <parent link="${prefix}link_3"/>
+        <child link="${prefix}link_4"/>
+        <origin xyz="1.501 0 0.115" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="${-360*pi/180}" upper="${360*pi/180}" effort="89.96" velocity="${500*pi/180}"/>
+    </joint>
+    <joint name="${prefix}joint5" type="revolute">
+        <parent link="${prefix}link_4"/>
+        <child link="${prefix}link_5"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="${-360*pi/180}" upper="${360*pi/180}" effort="67.03" velocity="${400*pi/180}"/>
+    </joint>
+    <joint name="${prefix}joint6" type="revolute">
+        <parent link="${prefix}link_5"/>
+        <child link="${prefix}link_6"/>
+        <origin xyz="0.0885 0 -0.1365" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="${-360*pi/180}" upper="${360*pi/180}" effort="33.30" velocity="${720*pi/180}"/>
+    </joint>
+    <joint name="${prefix}EndFlange" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${90*pi/180} 0"/>
+        <parent link="${prefix}link_6"/>
+        <child link="${prefix}EndFlange"/>
+    </joint>
+    <!-- end of joint list -->
+    </xacro:macro>
+</robot>
+
